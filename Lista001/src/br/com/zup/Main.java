@@ -15,5 +15,15 @@ public class Main {
         System.out.println(" e velocidade " +futebol.velocidade);
 
         System.out.println("==========================================");
+
+// 2 - Instanciando objetos da classe Pessoa
+        Pessoa mulher = new Pessoa("Karol", 27, 1.7);
+        Pessoa homem = new Pessoa("Giovane", 37, 1.7);
+        homem.peso = 60;
+
+        System.out.println("O nome é " +mulher.nome+ ", a idade " +mulher.idade+ " anos, e altura " +mulher.altura);
+        System.out.println("O nome é " +homem.nome+ ", a idade " +homem.idade+ " anos, altura " +homem.altura+ "m e peso " +homem.peso+ "kg");
+
+        System.out.println("==========================================");
     }
 }
