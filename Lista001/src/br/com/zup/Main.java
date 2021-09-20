@@ -25,5 +25,16 @@ public class Main {
         System.out.println("O nome é " +homem.nome+ ", a idade " +homem.idade+ " anos, altura " +homem.altura+ "m e peso " +homem.peso+ "kg");
 
         System.out.println("==========================================");
+
+// 3 - Instanciando objetos da classe Conta Corrente
+        ContaCorrente comecoDeMes = new ContaCorrente("Karol Rica", "87432-7");
+        comecoDeMes.saldo = 5000.43;
+        ContaCorrente fimDeMes = new ContaCorrente("Karol Pobre", "87432-7");
+        fimDeMes.saldo = -50.2;
+
+        System.out.println("A cliente " +comecoDeMes.nome+ " titular da conta " +comecoDeMes.numeroDaConta+ " começa o mês com o saldo de R$" + comecoDeMes.saldo);
+        System.out.println("Já no fim do mês o saldo é de R$" +fimDeMes.saldo);
+
+        System.out.println("==========================================");
     }
 }
