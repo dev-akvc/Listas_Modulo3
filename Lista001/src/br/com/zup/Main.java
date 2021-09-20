@@ -36,5 +36,15 @@ public class Main {
         System.out.println("Já no fim do mês o saldo é de R$" +fimDeMes.saldo);
 
         System.out.println("==========================================");
+
+// 4 - Instanciando objetos da classe Carro
+        Carro kwid = new Carro("Renault", "Kwid", "4");
+        Carro veloster = new Carro("Hyundai", "Veloster", "3");
+        veloster.potencia = 10.2;
+
+        System.out.println(kwid.modelo+ " é da marca " +kwid.marca);
+        System.out.println("Veloster tem " +veloster.potencia+ " de potência");
+
+        System.out.println("==========================================");
     }
 }
