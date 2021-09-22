@@ -16,9 +16,9 @@ public class Elevador {
         this.totalPessoas = totalPessoas;
     }
 
-//    public int getAndarAtual() {
-//        return andarAtual;
-//    }
+    public int getAndarAtual() {
+        return andarAtual;
+    }
 
     public int getTotalDeAndares() {
         return totalDeAndares;
