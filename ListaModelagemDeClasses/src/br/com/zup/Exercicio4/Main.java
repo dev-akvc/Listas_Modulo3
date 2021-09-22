@@ -12,6 +12,26 @@ public class Main {
 
         nubank.exibirFatura();
 
+        nubank.aumentarLimite(1000);
+        System.out.println("O limite é: " +nubank.limiteCartao);
+
+        nubank.diminuirLimite(200);
+        System.out.println("O limite é: " +nubank.limiteCartao);
+
+        nubank.realizarCompra(5000);
+        nubank.exibirFatura();
+
+        nubank.aumentarLimite(1000);
+        System.out.println("O limite é: " +nubank.limiteCartao);
+
+        nubank.realizarCompra(1200);
+        nubank.exibirFatura();
+
+        nubank.realizarCompra(300);
+        nubank.exibirFatura();
+
+
+
 
 
     }

@@ -3,9 +3,10 @@ package br.com.zup.Exercicio4;
 public class CartaoCredito {
     //    Atributos do cartão
     String nomeCliente;
-    double limiteCartao, saldoFatura;
+    double limiteCartao;
+    double saldoFatura;
 
-    public CartaoCredito(){
+    public CartaoCredito() {
     }
 
     public void aumentarLimite(double valor) {
@@ -26,7 +27,7 @@ public class CartaoCredito {
     }
 
     public void exibirFatura() {
-        System.out.println("Cliente " +nomeCliente+ " tem uma fatura de R$ " +saldoFatura);
+        System.out.println("Cliente " + nomeCliente + " tem uma fatura de R$ " + saldoFatura);
     }
 
 

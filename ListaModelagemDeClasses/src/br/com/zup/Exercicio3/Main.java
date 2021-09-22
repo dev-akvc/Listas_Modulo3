@@ -3,7 +3,7 @@ package br.com.zup.Exercicio3;
 public class Main {
     public static void main(String[] args) {
         //        Instanciando o elevador
-        Elevador thyssen = new Elevador(0, 3);
+        Elevador thyssen = new Elevador(0, 15, 8, 1);
 
         //        Exibindo estado do elevador
         thyssen.mostrarElevador();
@@ -17,7 +17,7 @@ public class Main {
         thyssen.mostrarElevador();
 
         //        Saindo pessoas
-        thyssen.sairPessoas(3);
+        thyssen.sairPessoas(5);
         thyssen.mostrarElevador();
 
         //        Descendo andar
