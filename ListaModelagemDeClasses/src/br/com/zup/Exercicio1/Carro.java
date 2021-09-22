@@ -1,8 +1,11 @@
 package br.com.zup.Exercicio1;
 
 public class Carro {
-    String nome, fabricante, cor;
-    double peso, valor;
+    String nome;
+    String fabricante;
+    String cor;
+    double peso;
+    double valor;
 
     //    Construtor
     public Carro(String nome, String fabricante, String cor, double peso, double valor) {

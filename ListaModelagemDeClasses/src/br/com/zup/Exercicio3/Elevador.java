@@ -39,16 +39,16 @@ public class Elevador {
     }
 
     public int subirElevador(int andarDesejado) {
-        if (andarAtual >= 0 & andarAtual < totalDeAndares) {
+        if (andarDesejado >= 0 & andarDesejado < totalDeAndares) {
             andarAtual = andarDesejado;
         } else {
-            System.out.println("Não é possível subir.");
+            System.out.println("Não é possível subir mais.");
         }
         return andarAtual;
     }
 
     public int descerElevador(int andarDesejado) {
-        if (andarAtual >= 0 & andarAtual < totalDeAndares) {
+        if (andarDesejado >= 0 & andarDesejado < totalDeAndares) {
             andarAtual = andarDesejado;
         } else {
             System.out.println("Não é possível descer mais");

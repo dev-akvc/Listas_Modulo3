@@ -7,9 +7,7 @@ public class CartaoCredito {
     double saldoFatura;
 
     public CartaoCredito() {
-    }
-
-    public void aumentarLimite(double valor) {
+    } public void aumentarLimite(double valor) {
         limiteCartao += valor;
     }
 

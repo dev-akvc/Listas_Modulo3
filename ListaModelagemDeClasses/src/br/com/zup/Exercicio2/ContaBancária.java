@@ -2,7 +2,8 @@ package br.com.zup.Exercicio2;
 
 public class ContaBancária {
     //    Criando atributos da Classe
-    String nomeCorrentista, numeroConta;
+    String nomeCorrentista;
+    String numeroConta;
     double saldoConta;
 
     //    Criando construtor

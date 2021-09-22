@@ -24,7 +24,10 @@ public class Main {
         thyssen.descerElevador(2);
         thyssen.mostrarElevador();
 
-        thyssen.descerElevador(2);
+        thyssen.descerElevador(-2);
+        thyssen.mostrarElevador();
+
+        thyssen.subirElevador(15);
         thyssen.mostrarElevador();
 
     }
