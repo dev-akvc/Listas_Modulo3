@@ -9,7 +9,7 @@ public class Main {
         people.setDiaNascimento(23);
         people.setMesNascimento(3);
         people.setAnoNascimento(1994);
-        people.idade();
+        people.idade(2021);
         people.exibirPessoa();
 
     }

@@ -18,25 +18,25 @@ public class ContaBancaria {
     }
 
     //    Criando métodos
-//    public String getNomeCorrentista() {
-//        return nomeCorrentista;
-//    }
+    public String getNomeCorrentista() {
+        return nomeCorrentista;
+    }
 
     public void setNomeCorrentista(String nomeCorrentista) {
         this.nomeCorrentista = nomeCorrentista;
     }
 
-//    public String getNumeroConta() {
-//        return numeroConta;
-//    }
+    public String getNumeroConta() {
+        return numeroConta;
+    }
 
     public void setNumeroConta(String numeroConta) {
         this.numeroConta = numeroConta;
     }
 
-//    public double getSaldoConta() {
-//        return saldoConta;
-//    }
+    public double getSaldoConta() {
+        return saldoConta;
+    }
 
     public void depositar(double deposito){
         saldoConta += deposito;

@@ -51,13 +51,12 @@ public class Pessoa {
         this.altura = altura;
     }
 
-    public int idade() {
-        idade = 2021 - anoNascimento;
+    public int idade(int anoAtual) {
+        idade = anoAtual - anoNascimento;
         return idade;
     }
 
     public void exibirPessoa() {
-
         System.out.println(nome + " tem " + altura + "m, nasceu em " + diaNascimento + "/" + mesNascimento + "/" + anoNascimento + " tendo então " + idade + " anos");
     }
 }
