@@ -12,13 +12,13 @@ public class Guerreiros extends Heroi {
         this.poderAtaque = poderAtaque;
     }
 
-    //    Método solicitado
-    public double aplicarDano() {
-        return poderAtaque;
-    }
-
     //    Setter que falta
     public void setPoderAtaque(double poderAtaque) {
         this.poderAtaque = poderAtaque;
+    }
+
+    //    Método solicitado
+    public double aplicarDano() {
+        return poderAtaque;
     }
 }
