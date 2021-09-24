@@ -23,7 +23,7 @@ public class Heroi {
     }
 
     public double exibirVida() {
-        return this.vida;
+        return vida;
     }
 
     //    Getter que falta

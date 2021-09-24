@@ -19,11 +19,10 @@ public class Inimigos {
     }
 
     public double exibirVida() {
-        return this.vida;
+        return vida;
     }
 
     //    Getter que falta
-
     public String getNome() {
         return nome;
     }
