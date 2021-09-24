@@ -10,7 +10,7 @@ public class Rasteiros extends Inimigos {
     }
 
     //    Método solicitado
-    public double aplicarDano(){
+    public double aplicarDano() {
         return danoEspinho;
     }
 
