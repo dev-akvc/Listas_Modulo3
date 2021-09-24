@@ -1,6 +1,6 @@
 package br.com.zup;
 
-public class Colaborador extends Pessoa{
+public class Colaborador extends Pessoa {
     private int codigoSetor;
     private double salarioBase;
     private double imposto;
@@ -16,7 +16,7 @@ public class Colaborador extends Pessoa{
         this.imposto = imposto;
     }
 
-//    Getters e setters
+    //    Getters e setters
     public int getCodigoSetor() {
         return codigoSetor;
     }
@@ -41,7 +41,7 @@ public class Colaborador extends Pessoa{
         this.imposto = imposto;
     }
 
-    public double calcularSalario(){
+    public double calcularSalario() {
         double salarioLiquido = salarioBase - imposto;
         return salarioLiquido;
     }
