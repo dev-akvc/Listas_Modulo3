@@ -4,7 +4,7 @@ public class Heroi {
     private String nome;
     private double vida;
 
-//    Métodos construtores
+    //    Métodos construtores
     public Heroi() {
     }
 
@@ -13,7 +13,7 @@ public class Heroi {
         this.vida = vida;
     }
 
-//    Métodos solicitados
+    //    Métodos solicitados
     public void trocarNome(String nome) {
         this.nome = nome;
     }
@@ -26,7 +26,7 @@ public class Heroi {
         return this.vida;
     }
 
-//    Getter que falta
+    //    Getter que falta
     public String getNome() {
         return nome;
     }
