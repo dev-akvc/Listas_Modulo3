@@ -61,7 +61,7 @@ public class Funcionario {
     }
 
     //    Método solicitado
-    public void aumentaSalario() {
+    public void aumentarSalario() {
         double salarioAumentado = (getSalario() * 1.1);
         setSalario(salarioAumentado);
     }

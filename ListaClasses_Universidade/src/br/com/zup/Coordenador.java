@@ -1,6 +1,6 @@
 package br.com.zup;
 
-public class Coordenador extends Funcionario{
+public class Coordenador extends Funcionario {
     private int ProfessoresSupervisionados;
 
     //    Métodos construtores
@@ -23,8 +23,12 @@ public class Coordenador extends Funcionario{
 
     //    Método solicitado
     @Override
-    public void aumentaSalario() {
+    public void aumentarSalario() {
         double salarioAumentado = (getSalario() * 1.05);
         setSalario(salarioAumentado);
+    }
+
+    public void adicionarProfessor() {
+        ProfessoresSupervisionados += 1;
     }
 }
