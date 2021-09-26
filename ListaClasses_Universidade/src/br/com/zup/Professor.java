@@ -52,4 +52,10 @@ public class Professor extends Funcionario {
     public void setQtdTurmas(int qtdTurmas) {
         this.qtdTurmas = qtdTurmas;
     }
+
+    //    Método solicitado
+    public void adicionarTurma() {
+        qtdTurmas += 1;
+    }
+
 }
