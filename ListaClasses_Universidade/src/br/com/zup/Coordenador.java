@@ -21,6 +21,10 @@ public class Coordenador extends Funcionario{
         ProfessoresSupervisionados = professoresSupervisionados;
     }
 
-
-
+    //    Método solicitado
+    @Override
+    public void aumentaSalario() {
+        double salarioAumentado = (getSalario() * 1.05);
+        setSalario(salarioAumentado);
+    }
 }
