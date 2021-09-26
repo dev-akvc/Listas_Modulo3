@@ -59,4 +59,10 @@ public class Funcionario {
     public void setSalario(double salario) {
         this.salario = salario;
     }
+
+    //    Método solicitado
+    public void aumentaSalario() {
+        double salarioAumentado = (getSalario() * 1.1);
+        setSalario(salarioAumentado);
+    }
 }
