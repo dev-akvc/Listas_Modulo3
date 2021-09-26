@@ -1,6 +1,6 @@
 package br.com.zup;
 
-public class Professor extends Funcionario{
+public class Professor extends Funcionario {
     private String nivelGraduacao;
     private String disciplina;
     private int qtdAlunos;
