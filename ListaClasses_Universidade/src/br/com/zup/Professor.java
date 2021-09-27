@@ -5,9 +5,9 @@ public class Professor extends Funcionario {
     private String disciplina;
     private int qtdAlunos;
     private int qtdTurmas;
+    private Turma turmas[] = new Turma[10];
 
     //    Métodos construtores
-
     public Professor() {
     }
 
@@ -20,7 +20,6 @@ public class Professor extends Funcionario {
     }
 
     //    Getters e setters
-
     public String getNivelGraduacao() {
         return nivelGraduacao;
     }
@@ -53,9 +52,26 @@ public class Professor extends Funcionario {
         this.qtdTurmas = qtdTurmas;
     }
 
-    //    Método solicitado
+    public Turma[] getTurmas() {
+        return turmas;
+    }
+
+    public void setTurmas(Turma[] turmas) {
+        this.turmas = turmas;
+    }
+
+    //    Métodos solicitados
     public void adicionarTurma() {
         qtdTurmas += 1;
+    }
+
+    public void registrarTurma(Turma novaTurma){
+        if (qtdTurmas <= 10){
+            qtdTurmas++;
+        }
+        else {
+            System.out.println("Limite de turmas já foi atingido.");
+        }
     }
 
 }
