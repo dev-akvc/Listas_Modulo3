@@ -1,19 +1,21 @@
 package br.com.zup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Imovel {
     private String endereco;
     private double valorAluguel;
-    private Morador moradores;
     private String corretor;
+    private List <Morador> moradores = new ArrayList<>();
 
     //    Métodos construtores
     public Imovel() {
     }
 
-    public Imovel(String endereco, double valorAluguel, Morador moradores, String corretor) {
+    public Imovel(String endereco, double valorAluguel, String corretor) {
         this.endereco = endereco;
         this.valorAluguel = valorAluguel;
-        this.moradores = moradores;
         this.corretor = corretor;
     }
 
@@ -32,14 +34,6 @@ public class Imovel {
 
     public void setValorAluguel(double valorAluguel) {
         this.valorAluguel = valorAluguel;
-    }
-
-    public Morador getMoradores() {
-        return moradores;
-    }
-
-    public void setMoradores(Morador moradores) {
-        this.moradores = moradores;
     }
 
     public String getCorretor() {
