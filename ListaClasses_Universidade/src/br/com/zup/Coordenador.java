@@ -1,7 +1,12 @@
 package br.com.zup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Coordenador extends Funcionario {
     private int qtdProfSupervisionados;
+    private Professor[] professoresSupervisionados = new Professor[5];
+    private int contador;
 
     //    Métodos construtores
     public Coordenador() {
@@ -28,7 +33,9 @@ public class Coordenador extends Funcionario {
         setSalario(salarioAumentado);
     }
 
-    public void adicionarProfessor(Professor professoresSupervisionados) {
-        qtdProfSupervisionados += 1;
+    public void adicionarProfessor(Professor professor) {
+        this.professoresSupervisionados[contador] = professor;
+        contador ++;
+        this.qtdProfSupervisionados++;
     }
 }
