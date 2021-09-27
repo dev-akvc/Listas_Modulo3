@@ -6,6 +6,7 @@ public class Professor extends Funcionario {
     private int qtdAlunos;
     private int qtdTurmas;
     private Turma turmas[] = new Turma[10];
+    private int contador;
 
     //    Métodos construtores
     public Professor() {
@@ -62,16 +63,25 @@ public class Professor extends Funcionario {
 
     //    Métodos solicitados
     public void adicionarTurma() {
-        qtdTurmas += 1;
+        this.qtdTurmas += 1;
     }
 
-    public void registrarTurma(Turma novaTurma){
-        if (qtdTurmas <= 10){
-            qtdTurmas++;
-        }
-        else {
-            System.out.println("Limite de turmas já foi atingido.");
-        }
+    public void registrarTurma(Turma novaTurma) {
+//        if (qtdTurmas <= 10){
+        turmas[contador] = novaTurma;
+        contador++;
+        adicionarTurma();
+//        }
+//        else {
+//            System.out.println("Limite de turmas já foi atingido.");
+//        }
+    }
+
+    public void exibirDados() {
+        System.out.print("Professor(a) " + getNome());
+        System.out.print(", da disciplina " + getDisciplina());
+        System.out.println(", tem " + qtdTurmas + " turmas.");
+
     }
 
 }
