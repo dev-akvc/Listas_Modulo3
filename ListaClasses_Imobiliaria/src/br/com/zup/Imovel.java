@@ -44,5 +44,11 @@ public class Imovel {
         this.corretor = corretor;
     }
 
+    //    Método para adicionar moradores
+    public void adicionarMoradores (Morador novoMorador){
+        moradores.add(novoMorador);
+        System.out.println("Morador cadastrado.");
+    }
+
 
 }
