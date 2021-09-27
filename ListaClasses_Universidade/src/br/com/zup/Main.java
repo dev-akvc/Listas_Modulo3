@@ -7,11 +7,9 @@ public class Main {
         Coordenador coord = new Coordenador("Karol", "432.515.803-09", 13, "Colégio XVI", 7500, 1);
 
         coord.aumentarSalario();
+        System.out.println(coord.getSalario());
+        System.out.println(coord.getQtdProfSupervisionados());
         coord.adicionarProfessor(prof);
-
-
-
-
-
+        System.out.println(coord.getQtdProfSupervisionados());
     }
 }
