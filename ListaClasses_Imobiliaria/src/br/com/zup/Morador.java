@@ -17,6 +17,12 @@ public class Morador {
         this.animalDeEstimacao = animalDeEstimacao;
     }
 
+    public Morador(String nome, String cpf, String ocupacao) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.ocupacao = ocupacao;
+    }
+
     //    Getters e setters
 
 

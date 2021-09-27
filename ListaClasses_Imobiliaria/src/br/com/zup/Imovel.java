@@ -7,7 +7,7 @@ public class Imovel {
     private String endereco;
     private double valorAluguel;
     private String corretor;
-    private List <Morador> moradores = new ArrayList<>();
+    private List<Morador> moradores = new ArrayList<>();
 
     //    Métodos construtores
     public Imovel() {
@@ -45,10 +45,22 @@ public class Imovel {
     }
 
     //    Método para adicionar moradores
-    public void adicionarMoradores (Morador novoMorador){
+    public void adicionarMoradores(Morador novoMorador) {
         moradores.add(novoMorador);
-        System.out.println("Morador cadastrado.");
     }
 
+    //        Método para exibir os dados do imóvel
+    @Override
+    public String toString() {
+        StringBuilder exibirDados = new StringBuilder();
+
+        exibirDados.append(" O imóvel do endereço: " + endereco);
+        exibirDados.append("\n Tem o aluguel de R$ " + valorAluguel);
+        exibirDados.append("\n E corretor " + corretor);
+        exibirDados.append("\n Atualmente está locado para: " + moradores.size() + " morador(es)");
+        exibirDados.append("\n São eles: " + moradores);
+
+        return exibirDados.toString();
+    }
 
 }
