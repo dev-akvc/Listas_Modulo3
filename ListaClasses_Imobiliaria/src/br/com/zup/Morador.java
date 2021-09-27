@@ -57,4 +57,16 @@ public class Morador {
     public void setAnimalDeEstimacao(boolean animalDeEstimacao) {
         this.animalDeEstimacao = animalDeEstimacao;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder exibirMoradores = new StringBuilder();
+
+        exibirMoradores.append("\n Nome: " +nome);
+        exibirMoradores.append("\n CPF: " +cpf);
+        exibirMoradores.append("\n Ocupação: " +ocupacao);
+        exibirMoradores.append("\n Tem animal de estimação? " +animalDeEstimacao);
+
+        return exibirMoradores.toString();
+    }
 }
