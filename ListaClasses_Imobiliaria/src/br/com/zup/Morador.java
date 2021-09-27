@@ -24,8 +24,6 @@ public class Morador {
     }
 
     //    Getters e setters
-
-
     public String getNome() {
         return nome;
     }
@@ -58,14 +56,15 @@ public class Morador {
         this.animalDeEstimacao = animalDeEstimacao;
     }
 
+    //        Método para exibir os dados do morador
     @Override
     public String toString() {
         StringBuilder exibirMoradores = new StringBuilder();
 
-        exibirMoradores.append("\n Nome: " +nome);
-        exibirMoradores.append("\n CPF: " +cpf);
-        exibirMoradores.append("\n Ocupação: " +ocupacao);
-        exibirMoradores.append("\n Tem animal de estimação? " +animalDeEstimacao);
+        exibirMoradores.append("\n Nome: " + nome);
+        exibirMoradores.append("\n CPF: " + cpf);
+        exibirMoradores.append("\n Ocupação: " + ocupacao);
+        exibirMoradores.append("\n Tem animal de estimação? " + animalDeEstimacao);
 
         return exibirMoradores.toString();
     }
