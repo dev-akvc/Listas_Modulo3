@@ -1,24 +1,24 @@
 package br.com.zup;
 
 public class Coordenador extends Funcionario {
-    private int ProfessoresSupervisionados;
+    private int qtdProfSupervisionados;
 
     //    Métodos construtores
     public Coordenador() {
     }
 
-    public Coordenador(String nome, String cpf, double numeroDeRegistro, String orgaoLotacao, double salario, int professoresSupervisionados) {
+    public Coordenador(String nome, String cpf, double numeroDeRegistro, String orgaoLotacao, double salario, int qtdProfSupervisionados) {
         super(nome, cpf, numeroDeRegistro, orgaoLotacao, salario);
-        ProfessoresSupervisionados = professoresSupervisionados;
+        this.qtdProfSupervisionados = qtdProfSupervisionados;
     }
 
     //    Getters e setters
-    public int getProfessoresSupervisionados() {
-        return ProfessoresSupervisionados;
+    public int getQtdProfSupervisionados() {
+        return qtdProfSupervisionados;
     }
 
-    public void setProfessoresSupervisionados(int professoresSupervisionados) {
-        ProfessoresSupervisionados = professoresSupervisionados;
+    public void setQtdProfSupervisionados(int qtdProfSupervisionados) {
+        this.qtdProfSupervisionados = qtdProfSupervisionados;
     }
 
     //    Método solicitado
@@ -28,7 +28,7 @@ public class Coordenador extends Funcionario {
         setSalario(salarioAumentado);
     }
 
-    public void adicionarProfessor() {
-        ProfessoresSupervisionados += 1;
+    public void adicionarProfessor(Professor professoresSupervisionados) {
+        qtdProfSupervisionados += 1;
     }
 }
