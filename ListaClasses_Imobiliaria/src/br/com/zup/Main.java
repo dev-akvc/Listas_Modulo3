@@ -14,8 +14,8 @@ public class Main {
         Morador morador3 = new Morador("Bruno", "756.235.098-12", "Vendedor", false);
 
         Catalogo catalogo = new Catalogo();
+//        MenuInicial menu = new MenuInicial();
 
-        catalogo.menuInicial();
 
         //        Adicionando moradores nos imóveis
         casa1.adicionarMoradores(morador1);
@@ -25,5 +25,10 @@ public class Main {
 
         casa2.adicionarMoradores(morador3);
         System.out.println(casa2);
+
+//        catalogo.adicionarImoveis(casa1);
+//        catalogo.adicionarImoveis(casa2);
+
+        catalogo.menuInicial();
     }
 }
