@@ -2,7 +2,6 @@ package br.com.zup;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Catalogo {
     private List<Imovel> listaImoveis = new ArrayList<>();
