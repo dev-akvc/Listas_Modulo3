@@ -11,8 +11,8 @@ public class Ingrediente {
     public Ingrediente() {
     }
 
-    public Ingrediente(String nome) {
-        this.nome = nome;
+    public Ingrediente(String nomeIngrediente) {
+        this.nome = nomeIngrediente;
     }
 
     //  Métodos getters e setters

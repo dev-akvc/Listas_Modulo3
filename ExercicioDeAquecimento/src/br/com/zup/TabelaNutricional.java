@@ -58,7 +58,7 @@ public class TabelaNutricional {
         exibirTabela.append("\n Tem de calorias: " +valorEnergetico);
         exibirTabela.append("\n Proteínas: " +proteinas);
         exibirTabela.append("\n Carboidratos: " +carboidratos);
-        exibirTabela.append("\n Fibra alimentar: " +fibraAlimentar);
+        exibirTabela.append("\n Fibra alimentar: " +fibraAlimentar + "\n");
 
         return  exibirTabela.toString();
     }
