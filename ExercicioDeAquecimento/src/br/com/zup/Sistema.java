@@ -26,7 +26,7 @@ public class Sistema {
     //  Método para cadastrar ingredientes
     public static Ingrediente cadastrarIngredientes() {
         String nome = receberDados("Nome do ingrediente: ").nextLine();
-        Ingrediente ingrediente = new Ingrediente();
+        Ingrediente ingrediente = new Ingrediente(nome);
         return ingrediente;
     }
 
@@ -36,8 +36,20 @@ public class Sistema {
         double proteinas = receberDados("Tem quantos gramas de proteína? ").nextDouble();
         double carboidratos = receberDados("Tem quantos gramas de carboidratos? ").nextDouble();
         double fibraAlimentar = receberDados("Tem quantos gramas de fibra alimentar? ").nextDouble();
-        TabelaNutricional tabela = new TabelaNutricional();
+        TabelaNutricional tabela = new TabelaNutricional(valorEnergetico, proteinas, carboidratos, fibraAlimentar);
         return tabela;
+    }
+
+    //  Método para exibir pratos
+    public static void exibirPrato() {
+        Cardapio cardapio = new Cardapio();
+        System.out.println(cardapio);
+    }
+
+    //  Método para excluir pratos
+    public static void excluirPratos() {
+        Cardapio cardapio = new Cardapio();
+        System.out.println(cardapio);
     }
 
 

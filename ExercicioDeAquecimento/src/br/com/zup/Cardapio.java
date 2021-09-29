@@ -10,6 +10,10 @@ public class Cardapio {
         pratos.add(novoPrato);
     }
 
+    public void excluirPrato(Prato novoPrato) {
+        pratos.remove(novoPrato);
+    }
+
     @Override
     public String toString (){
         StringBuilder pratosDisponiveis = new StringBuilder();
