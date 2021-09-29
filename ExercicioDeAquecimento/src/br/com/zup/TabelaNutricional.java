@@ -49,4 +49,17 @@ public class TabelaNutricional {
     public void setFibraAlimentar(double fibraAlimentar) {
         this.fibraAlimentar = fibraAlimentar;
     }
+
+    @Override
+    public String toString (){
+        StringBuilder exibirTabela = new StringBuilder();
+
+        exibirTabela.append("=== Tabela Nutricional ===");
+        exibirTabela.append("Tem de calorias: " +valorEnergetico);
+        exibirTabela.append("Proteínas: " +proteinas);
+        exibirTabela.append("Carboidratos: " +carboidratos);
+        exibirTabela.append("Fibra alimentar: " +fibraAlimentar);
+
+        return  exibirTabela.toString();
+    }
 }

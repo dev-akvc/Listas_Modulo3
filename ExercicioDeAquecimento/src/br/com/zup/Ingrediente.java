@@ -31,4 +31,15 @@ public class Ingrediente {
     public void setTabelaNutricional(List<TabelaNutricional> tabelaNutricional) {
         this.tabelaNutricional = tabelaNutricional;
     }
+
+    @Override
+    public String toString (){
+        StringBuilder exibirIngrediente = new StringBuilder();
+
+        exibirIngrediente.append("O ingrediente: " +nome);
+        exibirIngrediente.append(tabelaNutricional);
+
+        return  exibirIngrediente.toString();
+    }
+
 }
