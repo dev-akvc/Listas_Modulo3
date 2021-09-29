@@ -67,6 +67,25 @@ public class Sistema {
                     ingrediente.adicionarTabela(tabela);
                     }
 
+                    boolean continuarCadastro = true;
+                    int qtdPratos = receberDados("Deseja cadastrar outro prato?\n 1- Sim \n 2- Não ").nextInt();
+                    if (qtdPratos == 1) {
+                        prato = cadastrarPrato();
+                        cardapio.adicionarPrato(prato);
+
+                        qtdIngredientes = receberDados("Tem quantos ingredientes?").nextInt();
+                        for (int i = 0; i < qtdIngredientes; i++) {
+                            Ingrediente ingrediente = cadastrarIngredientes();
+                            TabelaNutricional tabela = cadastrarTabela();
+
+                            prato.adicionarIngrediente(ingrediente);
+                            ingrediente.adicionarTabela(tabela);
+                        }
+                    }
+                    if (qtdPratos == 2) {
+                        continuarCadastro = false;
+                    }
+
                     break;
 
                 case 2:
