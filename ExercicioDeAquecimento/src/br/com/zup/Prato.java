@@ -32,4 +32,15 @@ public class Prato {
     public void setNomePrato(String nomePrato) {
         this.nomePrato = nomePrato;
     }
+
+    @Override
+    public String toString (){
+        StringBuilder exibirIngrediente = new StringBuilder();
+
+        exibirIngrediente.append("O prato : " +nomePrato);
+        exibirIngrediente.append("É composto por : " +ingredientes.size() +" ingredientes");
+        exibirIngrediente.append("São eles: " +ingredientes);
+
+        return  exibirIngrediente.toString();
+    }
 }
