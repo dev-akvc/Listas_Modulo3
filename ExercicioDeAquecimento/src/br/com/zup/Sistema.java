@@ -1,5 +1,7 @@
 package br.com.zup;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Sistema {
@@ -12,7 +14,14 @@ public class Sistema {
     //  Método para exibir menu
     public static void menu() {
         System.out.println(" ** Restaurante VemComFome ** ");
-        System.out.println("\n 1- Cadastrar um prato \n 2- Exibir os pratos \n 3- Excluir um prato \n 4- Sair");
+        System.out.println("\n 1- Cadastrar um prato \n 2- Exibir os pratos \n 3- Excluir um prato \n 4- Sair \n");
+    }
+
+    //  Método para cadastrar um cardápio
+    public static Cardapio cadastrarCardapio() {
+        Cardapio cardapio = new Cardapio();
+        cardapio.adicionarPrato(cadastrarPrato());
+        return cardapio;
     }
 
     //  Método para cadastrar um prato
@@ -20,6 +29,7 @@ public class Sistema {
         String nomePrato = receberDados("Nome do prato: ").nextLine();
         double valorPrato = receberDados("Valor do prato: ").nextDouble();
         Prato pratos = new Prato(nomePrato, valorPrato);
+//        pratos.adicionarIngrediente(cadastrarIngredientes());
         return pratos;
     }
 
@@ -27,6 +37,7 @@ public class Sistema {
     public static Ingrediente cadastrarIngredientes() {
         String nome = receberDados("Nome do ingrediente: ").nextLine();
         Ingrediente ingrediente = new Ingrediente(nome);
+//        ingrediente.adicionarTabela(cadastrarTabela());
         return ingrediente;
     }
 
@@ -81,16 +92,23 @@ public class Sistema {
 
                     int qtdIngredientes = receberDados("Quer cadastrar quantos ingredientes? ").nextInt();
                     for (int i = 0; i < qtdIngredientes; i++) {
-                    cadastrarIngredientes();
+                        cadastrarIngredientes();
+                        cadastrarTabela();
+//                        Prato pratos = new Prato();
+//                        Cardapio cardapio = new Cardapio();
+//                        cardapio.adicionarPrato(pratos);
                     }
-
-
                     break;
 
                 case 2:
+                    exibirPrato();
                     break;
 
                 case 3:
+//                    Prato pratos = new Prato();
+//                    Cardapio cardapio = new Cardapio();
+//                    cardapio.excluirPrato(pratos);
+
                     break;
 
                 case 4:
