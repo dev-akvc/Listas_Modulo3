@@ -14,66 +14,78 @@ public class Sistema {
     //  Método para exibir menu
     public static void menu() {
         System.out.println("\n ** Restaurante VemComFome ** ");
-        System.out.println("\n 1- Cadastrar um prato \n 2- Exibir os pratos \n 3- Excluir um prato \n 4- Sair \n");
+        System.out.println("\n 1- Cadastrar um prato \n 2- Exibir o cardápio \n 3- Excluir um prato \n 4- Sair \n");
     }
 
+    // Instanciando as classes
+    Cardapio cardapio = new Cardapio();
+    Prato pratos = new Prato();
+    Ingrediente ingredientes = new Ingrediente();
+    TabelaNutricional tabela = new TabelaNutricional();
+
+    //    Instanciando listas
+    public static List<Cardapio> listaCardapio = new ArrayList<>();
+    public static List<Prato> listaPrato = new ArrayList<>();
+    public static List<Ingrediente> listaIngredientes = new ArrayList<>();
+    public static List<TabelaNutricional> listaTabelas = new ArrayList<>();
+
+
     //  Método para cadastrar um cardápio
-    public static Cardapio cadastrarCardapio() {
+    public static List<Cardapio> cadastrarCardapio() {
         Cardapio cardapio = new Cardapio();
-        cardapio.adicionarPrato(cadastrarPrato());
-        return cardapio;
+        listaCardapio.add(cardapio);
+        return listaCardapio;
     }
 
     //  Método para cadastrar um prato
-    public static Prato cadastrarPrato() {
+    public static List<Prato> cadastrarPrato() {
         String nomePrato = receberDados("Nome do prato: ").nextLine();
         double valorPrato = receberDados("Valor do prato: ").nextDouble();
         Prato pratos = new Prato(nomePrato, valorPrato);
-//        pratos.adicionarIngrediente(cadastrarIngredientes());
-        return pratos;
+        listaPrato.add(pratos);
+        cadastrarIngredientes();
+        return listaPrato;
     }
 
     //  Método para cadastrar ingredientes
-    public static Ingrediente cadastrarIngredientes() {
+    public static List<Ingrediente> cadastrarIngredientes() {
+        int qtdIngredientes = receberDados("Quer cadastrar quantos ingredientes? ").nextInt();
+        for (int i = 0; i < qtdIngredientes; i++) {
         String nome = receberDados("Nome do ingrediente: ").nextLine();
         Ingrediente ingrediente = new Ingrediente(nome);
-//        ingrediente.adicionarTabela(cadastrarTabela());
-        return ingrediente;
+        listaIngredientes.add(ingrediente);
+        cadastrarTabela();
+        }
+        return listaIngredientes;
     }
 
     //  Método para cadastrar tabela nutricional
-    public static TabelaNutricional cadastrarTabela() {
+    public static List<TabelaNutricional> cadastrarTabela() {
         double valorEnergetico = receberDados("Tem quantas calorias? ").nextDouble();
         double proteinas = receberDados("Tem quantos gramas de proteína? ").nextDouble();
         double carboidratos = receberDados("Tem quantos gramas de carboidratos? ").nextDouble();
         double fibraAlimentar = receberDados("Tem quantos gramas de fibra alimentar? ").nextDouble();
         TabelaNutricional tabela = new TabelaNutricional(valorEnergetico, proteinas, carboidratos, fibraAlimentar);
-        return tabela;
+        listaTabelas.add(tabela);
+        return listaTabelas;
     }
 
     //  Método para exibir pratos
     public static void exibirPrato() {
-        Cardapio cardapio = new Cardapio();
-        System.out.println(cardapio);
+        System.out.println(listaPrato);
     }
 
     //  Método para excluir pratos
     public static void excluirPratos() {
-        Cardapio cardapio = new Cardapio();
-        System.out.println(cardapio);
+        listaCardapio.remove(listaPrato);
+        System.out.println(listaCardapio);
     }
 
-    //  Método para instanciar as classes
-    public static void todasAsClasses() {
-        Cardapio cardapio = new Cardapio();
-        Prato pratos = new Prato();
-        Ingrediente ingredientes = new Ingrediente();
-        TabelaNutricional tabela = new TabelaNutricional();
 
-        ingredientes.adicionarTabela(tabela);
-        pratos.adicionarIngrediente(ingredientes);
-        cardapio.adicionarPrato(pratos);
-    }
+//        ingredientes.adicionarTabela(tabela);
+//        pratos.adicionarIngrediente(ingredientes);
+//        cardapio.adicionarPrato(pratos);
+
 
     //  Método para executar menu
     public static void menuInicial() {
@@ -87,17 +99,7 @@ public class Sistema {
             switch (opcaoEscolhida) {
 
                 case 1:
-                    todasAsClasses();
                     cadastrarPrato();
-
-                    int qtdIngredientes = receberDados("Quer cadastrar quantos ingredientes? ").nextInt();
-                    for (int i = 0; i < qtdIngredientes; i++) {
-                        cadastrarIngredientes();
-                        cadastrarTabela();
-//                        Prato pratos = new Prato();
-//                        Cardapio cardapio = new Cardapio();
-//                        cardapio.adicionarPrato(pratos);
-                    }
                     break;
 
                 case 2:
