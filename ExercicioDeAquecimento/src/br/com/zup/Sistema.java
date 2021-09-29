@@ -52,8 +52,8 @@ public class Sistema {
         System.out.println(cardapio);
     }
 
-    //  Método para opção 1
-    public static void opcao1(){
+    //  Método para instanciar as classes
+    public static void todasAsClasses() {
         Cardapio cardapio = new Cardapio();
         Prato pratos = new Prato();
         Ingrediente ingredientes = new Ingrediente();
@@ -62,11 +62,10 @@ public class Sistema {
         ingredientes.adicionarTabela(tabela);
         pratos.adicionarIngrediente(ingredientes);
         cardapio.adicionarPrato(pratos);
-
     }
 
     //  Método para executar menu
-    public static void menuInicial(){
+    public static void menuInicial() {
         boolean menu = true;
 
         while (menu) {
@@ -74,11 +73,16 @@ public class Sistema {
             menu();
             int opcaoEscolhida = receberDados("Digite sua opção: ").nextInt();
 
-            switch (opcaoEscolhida){
+            switch (opcaoEscolhida) {
 
                 case 1:
+                    todasAsClasses();
+                    cadastrarPrato();
 
-
+                    int qtdIngredientes = receberDados("Quer cadastrar quantos ingredientes? ").nextInt();
+                    for (int i = 0; i < qtdIngredientes; i++) {
+                    cadastrarIngredientes();
+                    }
 
 
                     break;
