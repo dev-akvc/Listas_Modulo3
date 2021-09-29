@@ -13,7 +13,7 @@ public class Sistema {
 
     //  Método para exibir menu
     public static void menu() {
-        System.out.println(" ** Restaurante VemComFome ** ");
+        System.out.println("\n ** Restaurante VemComFome ** ");
         System.out.println("\n 1- Cadastrar um prato \n 2- Exibir os pratos \n 3- Excluir um prato \n 4- Sair \n");
     }
 
@@ -117,6 +117,7 @@ public class Sistema {
                     break;
 
                 default:
+                    System.out.println(" * Digite opção válida * ");
                     break;
             }
         }
