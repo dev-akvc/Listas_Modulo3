@@ -32,6 +32,14 @@ public class Ingrediente {
         this.tabelaNutricional = tabelaNutricional;
     }
 
+    public void adicionarTabela(TabelaNutricional novaTabela) {
+        tabelaNutricional.add(novaTabela);
+    }
+
+    public void excluirTabela(TabelaNutricional novaTabela) {
+        tabelaNutricional.remove(novaTabela);
+    }
+
     @Override
     public String toString (){
         StringBuilder exibirIngrediente = new StringBuilder();

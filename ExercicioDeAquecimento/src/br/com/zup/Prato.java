@@ -42,6 +42,14 @@ public class Prato {
         this.valorPrato = valorPrato;
     }
 
+    public void adicionarIngrediente(Ingrediente novoIngrediente) {
+        ingredientes.add(novoIngrediente);
+    }
+
+    public void excluirIngrediente(Ingrediente novoIngrediente) {
+        ingredientes.remove(novoIngrediente);
+    }
+
     @Override
     public String toString (){
         StringBuilder exibirIngrediente = new StringBuilder();

@@ -12,7 +12,7 @@ public class Sistema {
     //  Método para exibir menu
     public static void menu() {
         System.out.println(" ** Restaurante VemComFome ** ");
-        System.out.println("Digite: \n 1- Cadastrar um prato \n 2- Exibir os pratos \n 3- Excluir um prato \n 4- Sair");
+        System.out.println("\n 1- Cadastrar um prato \n 2- Exibir os pratos \n 3- Excluir um prato \n 4- Sair");
     }
 
     //  Método para cadastrar um prato
@@ -52,5 +52,52 @@ public class Sistema {
         System.out.println(cardapio);
     }
 
+    //  Método para opção 1
+    public static void opcao1(){
+        Cardapio cardapio = new Cardapio();
+        Prato pratos = new Prato();
+        Ingrediente ingredientes = new Ingrediente();
+        TabelaNutricional tabela = new TabelaNutricional();
+
+        ingredientes.adicionarTabela(tabela);
+        pratos.adicionarIngrediente(ingredientes);
+        cardapio.adicionarPrato(pratos);
+
+    }
+
+    //  Método para executar menu
+    public static void menuInicial(){
+        boolean menu = true;
+
+        while (menu) {
+
+            menu();
+            int opcaoEscolhida = receberDados("Digite sua opção: ").nextInt();
+
+            switch (opcaoEscolhida){
+
+                case 1:
+
+
+
+
+                    break;
+
+                case 2:
+                    break;
+
+                case 3:
+                    break;
+
+                case 4:
+                    System.out.println(" * Bye * ");
+                    menu = false;
+                    break;
+
+                default:
+                    break;
+            }
+        }
+    }
 
 }
