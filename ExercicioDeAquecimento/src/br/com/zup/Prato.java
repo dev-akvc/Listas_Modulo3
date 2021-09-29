@@ -12,8 +12,7 @@ public class Prato {
     public Prato() {
     }
 
-    public Prato(List<Ingrediente> ingredientes, String nomePrato, double valorPrato) {
-        this.ingredientes = ingredientes;
+    public Prato(String nomePrato, double valorPrato) {
         this.nomePrato = nomePrato;
         this.valorPrato = valorPrato;
     }
