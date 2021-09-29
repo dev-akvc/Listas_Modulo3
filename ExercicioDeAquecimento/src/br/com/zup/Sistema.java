@@ -23,5 +23,22 @@ public class Sistema {
         return pratos;
     }
 
+    //  Método para cadastrar ingredientes
+    public static Ingrediente cadastrarIngredientes() {
+        String nome = receberDados("Nome do ingrediente: ").nextLine();
+        Ingrediente ingrediente = new Ingrediente();
+        return ingrediente;
+    }
+
+    //  Método para cadastrar tabela nutricional
+    public static TabelaNutricional cadastrarTabela() {
+        double valorEnergetico = receberDados("Tem quantas calorias? ").nextDouble();
+        double proteinas = receberDados("Tem quantos gramas de proteína? ").nextDouble();
+        double carboidratos = receberDados("Tem quantos gramas de carboidratos? ").nextDouble();
+        double fibraAlimentar = receberDados("Tem quantos gramas de fibra alimentar? ").nextDouble();
+        TabelaNutricional tabela = new TabelaNutricional();
+        return tabela;
+    }
+
 
 }
