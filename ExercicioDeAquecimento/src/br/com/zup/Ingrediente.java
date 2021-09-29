@@ -36,7 +36,7 @@ public class Ingrediente {
     public String toString (){
         StringBuilder exibirIngrediente = new StringBuilder();
 
-        exibirIngrediente.append("Ingrediente: " +nome);
+        exibirIngrediente.append("\n Ingrediente: " +nome);
         exibirIngrediente.append(tabelaNutricional);
 
         return  exibirIngrediente.toString();

@@ -37,9 +37,9 @@ public class Prato {
     public String toString (){
         StringBuilder exibirIngrediente = new StringBuilder();
 
-        exibirIngrediente.append("O prato : " +nomePrato);
-        exibirIngrediente.append("É composto por : " +ingredientes.size() +" ingredientes");
-        exibirIngrediente.append("São eles: " +ingredientes);
+        exibirIngrediente.append("\n O prato : " +nomePrato);
+        exibirIngrediente.append("\n É composto por : " +ingredientes.size() +" ingredientes");
+        exibirIngrediente.append("\n São eles: " +ingredientes);
 
         return  exibirIngrediente.toString();
     }
