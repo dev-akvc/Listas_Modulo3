@@ -6,14 +6,16 @@ import java.util.List;
 public class Prato {
     private List<Ingrediente> ingredientes = new ArrayList<>();
     private String nomePrato;
+    private double valorPrato;
 
     //  Métodos contrutores
     public Prato() {
     }
 
-    public Prato(List<Ingrediente> ingredientes, String nomePrato) {
+    public Prato(List<Ingrediente> ingredientes, String nomePrato, double valorPrato) {
         this.ingredientes = ingredientes;
         this.nomePrato = nomePrato;
+        this.valorPrato = valorPrato;
     }
 
     //  Métodos getters e setters
@@ -33,11 +35,20 @@ public class Prato {
         this.nomePrato = nomePrato;
     }
 
+    public double getValorPrato() {
+        return valorPrato;
+    }
+
+    public void setValorPrato(double valorPrato) {
+        this.valorPrato = valorPrato;
+    }
+
     @Override
     public String toString (){
         StringBuilder exibirIngrediente = new StringBuilder();
 
         exibirIngrediente.append("\n O prato : " +nomePrato);
+        exibirIngrediente.append("\n Custa R$ " +valorPrato);
         exibirIngrediente.append("\n É composto por : " +ingredientes.size() +" ingredientes");
         exibirIngrediente.append("\n São eles: " +ingredientes);
 
