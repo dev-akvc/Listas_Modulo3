@@ -15,13 +15,13 @@ public class Cardapio {
     }
 
     @Override
-    public String toString (){
+    public String toString() {
         StringBuilder pratosDisponiveis = new StringBuilder();
 
         pratosDisponiveis.append(" * Cardápio *");
-        pratosDisponiveis.append("\n Prato : " +pratos);
+        pratosDisponiveis.append("\n Prato : " + pratos);
 
-        return  pratosDisponiveis.toString();
+        return pratosDisponiveis.toString();
     }
 
 }

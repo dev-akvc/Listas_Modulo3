@@ -43,14 +43,14 @@ public class Prato {
     }
 
     @Override
-    public String toString (){
+    public String toString() {
         StringBuilder exibirIngrediente = new StringBuilder();
 
-        exibirIngrediente.append("\n O prato : " +nomePrato);
-        exibirIngrediente.append("\n Custa R$ " +valorPrato);
-        exibirIngrediente.append("\n É composto por : " +ingredientes.size() +" ingredientes");
-        exibirIngrediente.append("\n São eles: " +ingredientes);
+        exibirIngrediente.append("\n O prato : " + nomePrato);
+        exibirIngrediente.append("\n Custa R$ " + valorPrato);
+        exibirIngrediente.append("\n É composto por : " + ingredientes.size() + " ingredientes");
+        exibirIngrediente.append("\n São eles: " + ingredientes);
 
-        return  exibirIngrediente.toString();
+        return exibirIngrediente.toString();
     }
 }

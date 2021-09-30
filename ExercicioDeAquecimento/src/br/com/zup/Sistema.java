@@ -17,7 +17,7 @@ public class Sistema {
         System.out.println("\n 1- Cadastrar um prato \n 2- Exibir o cardápio \n 3- Sair \n");
     }
 
-     //  Método para cadastrar um prato
+    //  Método para cadastrar um prato
     public static Prato cadastrarPrato() {
         String nomePrato = receberDados("Nome do prato: ").nextLine();
         double valorPrato = receberDados("Valor do prato: ").nextDouble();
@@ -55,35 +55,26 @@ public class Sistema {
             switch (opcaoEscolhida) {
 
                 case 1:
-                    Prato prato = cadastrarPrato();
-                    cardapio.adicionarPrato(prato);
 
-                    int qtdIngredientes = receberDados("Tem quantos ingredientes?").nextInt();
-                    for (int i = 0; i < qtdIngredientes; i++) {
-                    Ingrediente ingrediente = cadastrarIngredientes();
-                    TabelaNutricional tabela = cadastrarTabela();
+                    boolean realizarCadastro = true;
+                    while (realizarCadastro) {
+                        int novoPrato = receberDados("Deseja cadastrar um prato?\n 1- Sim \n 2- Não ").nextInt();
+                        if (novoPrato == 1) {
+                            Prato prato = cadastrarPrato();
+                            cardapio.adicionarPrato(prato);
 
-                    prato.adicionarIngrediente(ingrediente);
-                    ingrediente.adicionarTabela(tabela);
-                    }
+                            int qtdIngredientes = receberDados("Tem quantos ingredientes?").nextInt();
+                            for (int i = 0; i < qtdIngredientes; i++) {
+                                Ingrediente ingrediente = cadastrarIngredientes();
+                                TabelaNutricional tabela = cadastrarTabela();
 
-                    boolean continuarCadastro = true;
-                    int qtdPratos = receberDados("Deseja cadastrar outro prato?\n 1- Sim \n 2- Não ").nextInt();
-                    if (qtdPratos == 1) {
-                        prato = cadastrarPrato();
-                        cardapio.adicionarPrato(prato);
-
-                        qtdIngredientes = receberDados("Tem quantos ingredientes?").nextInt();
-                        for (int i = 0; i < qtdIngredientes; i++) {
-                            Ingrediente ingrediente = cadastrarIngredientes();
-                            TabelaNutricional tabela = cadastrarTabela();
-
-                            prato.adicionarIngrediente(ingrediente);
-                            ingrediente.adicionarTabela(tabela);
+                                prato.adicionarIngrediente(ingrediente);
+                                ingrediente.adicionarTabela(tabela);
+                            }
                         }
-                    }
-                    if (qtdPratos == 2) {
-                        continuarCadastro = false;
+                        if (novoPrato == 2) {
+                            realizarCadastro = false;
+                        }
                     }
 
                     break;

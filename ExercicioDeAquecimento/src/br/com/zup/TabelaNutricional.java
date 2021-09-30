@@ -51,15 +51,15 @@ public class TabelaNutricional {
     }
 
     @Override
-    public String toString (){
+    public String toString() {
         StringBuilder exibirTabela = new StringBuilder();
 
         exibirTabela.append(" === Tabela Nutricional ===");
-        exibirTabela.append("\n Tem de calorias: " +valorEnergetico);
-        exibirTabela.append("\n Proteínas: " +proteinas);
-        exibirTabela.append("\n Carboidratos: " +carboidratos);
-        exibirTabela.append("\n Fibra alimentar: " +fibraAlimentar + "\n");
+        exibirTabela.append("\n Tem de calorias: " + valorEnergetico);
+        exibirTabela.append("\n Proteínas: " + proteinas);
+        exibirTabela.append("\n Carboidratos: " + carboidratos);
+        exibirTabela.append("\n Fibra alimentar: " + fibraAlimentar + "\n");
 
-        return  exibirTabela.toString();
+        return exibirTabela.toString();
     }
 }

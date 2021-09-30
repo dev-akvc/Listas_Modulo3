@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Ingrediente {
     private String nome;
-    private List <TabelaNutricional> tabelaNutricional = new ArrayList<>();
+    private List<TabelaNutricional> tabelaNutricional = new ArrayList<>();
 
     //  Métodos contrutores
     public Ingrediente() {
@@ -41,13 +41,13 @@ public class Ingrediente {
     }
 
     @Override
-    public String toString (){
+    public String toString() {
         StringBuilder exibirIngrediente = new StringBuilder();
 
-        exibirIngrediente.append("\n Ingrediente: " +nome);
+        exibirIngrediente.append("\n Ingrediente: " + nome);
         exibirIngrediente.append(tabelaNutricional);
 
-        return  exibirIngrediente.toString();
+        return exibirIngrediente.toString();
     }
 
 }
