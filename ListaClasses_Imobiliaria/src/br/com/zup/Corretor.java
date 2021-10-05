@@ -4,7 +4,7 @@ public class Corretor extends Pessoa{
     public Corretor() {
     }
 
-    public Corretor(String nome, String cpf) {
-        super(nome, cpf);
+    public Corretor(String nome) {
+        super(nome);
     }
 }

@@ -1,6 +1,6 @@
 package br.com.zup;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Sistema {
@@ -16,19 +16,22 @@ public class Sistema {
         System.out.println("Digite:\n 1- Exibir imóveis \n 2- Cadastrar imóveis \n 3- Excluir imóveis \n 4- Sair do menu");
     }
 
-    public static List<Morador> cadastrarMoradores() {
+    public static Morador cadastrarMoradores() {
         String nome = capturarDados("Informe o nome: ").nextLine();
         String cpf = capturarDados("Informe o CPF: ").nextLine();
         String ocupacao = capturarDados("Informe a ocupação: ").nextLine();
         boolean animalDeEstimacao = capturarDados("Tem animal de estimação? ").nextBoolean();
-
         Morador morador = new Morador(nome, cpf, ocupacao, animalDeEstimacao);
-        return (List<Morador>) morador;
+
+        return morador;
     }
 
-//    public static Imovel cadastrarImoveis() {
-//
-//        return imovel;
-//    }
+    public static Corretor cadastrarCorretor(){
+        String nomeCorretor = capturarDados("Quem é o funcionário responsável? ").nextLine();
+        Corretor corretor = new Corretor(nomeCorretor);
+        return corretor;
+    }
+
+
 
 }
