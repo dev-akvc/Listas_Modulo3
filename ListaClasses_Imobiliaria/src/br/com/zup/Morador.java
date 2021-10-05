@@ -1,8 +1,7 @@
 package br.com.zup;
 
 public class Morador {
-    private String nome;
-    private String cpf;
+
     private String ocupacao;
     private boolean animalDeEstimacao = true;
 
