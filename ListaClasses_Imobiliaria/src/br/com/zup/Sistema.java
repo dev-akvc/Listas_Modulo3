@@ -28,16 +28,27 @@ public class Sistema {
         String ocupacao = capturarDados("Informe a ocupação: ").nextLine();
         Morador morador = new Morador(nome, cpf, ocupacao);
 
+        boolean cpfDiferente = true;
+        for (Morador referencia : listaMoradores) {
+            if (cpf.equals(referencia.getCpf())) {
+                System.out.println(" * Não é possível cadastrar moradores com o mesmo CPF * ");
+                cpfDiferente = false;
+            }
+            if (cpfDiferente) {
+                morador.setNome(nome);
+                morador.setCpf(cpf);
+            }
+        }
         return morador;
     }
 
-    public static List<Morador> cadastrarListaMoradores(){
+    public static List<Morador> cadastrarListaMoradores() {
         boolean novosMoradores = true;
-        while (novosMoradores){
+        while (novosMoradores) {
             novosMoradores = false;
             listaMoradores.add(cadastrarMoradores());
             int repetirCadastroMorador = capturarDados("=== Cadastrar novo morador? ===\n 1- Sim \n 2- Não ").nextInt();
-            if (repetirCadastroMorador ==1){
+            if (repetirCadastroMorador == 1) {
                 novosMoradores = true;
             }
         }
