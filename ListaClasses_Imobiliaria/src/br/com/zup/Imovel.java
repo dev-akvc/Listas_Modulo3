@@ -6,17 +6,16 @@ import java.util.List;
 public class Imovel {
     private String endereco;
     private double valorAluguel;
-    private String corretor;
     private List<Morador> moradores = new ArrayList<>();
+    private Corretor corretor;
 
     //    Métodos construtores
     public Imovel() {
     }
 
-    public Imovel(String endereco, double valorAluguel, String corretor) {
+    public Imovel(String endereco, double valorAluguel) {
         this.endereco = endereco;
         this.valorAluguel = valorAluguel;
-        this.corretor = corretor;
     }
 
     //    Getters e setters
@@ -36,17 +35,25 @@ public class Imovel {
         this.valorAluguel = valorAluguel;
     }
 
-    public String getCorretor() {
-        return corretor;
+
+    public void escolherEndereco (String novoEndereco){
+        endereco = novoEndereco;
+    }
+    public void valorDoAluguel (double aluguel){
+        valorAluguel = aluguel;
     }
 
-    public void setCorretor(String corretor) {
-        this.corretor = corretor;
-    }
-
-    //    Método para adicionar moradores
-    public void adicionarMoradores(Morador novoMorador) {
+    public void adicionarMorador (Morador novoMorador){
         moradores.add(novoMorador);
+    }
+
+    public void adicionarCorretor (Corretor novoCorretor){
+        corretor = novoCorretor;
+    }
+    public void exibirMorador (){
+        for (Morador referencia : moradores){
+            System.out.println(referencia.getNome());
+        }
     }
 
     //        Método para exibir os dados do imóvel
@@ -56,7 +63,7 @@ public class Imovel {
 
         exibirDados.append(" O imóvel do endereço: " + endereco);
         exibirDados.append("\n Tem o aluguel de R$ " + valorAluguel);
-        exibirDados.append("\n E corretor " + corretor);
+        exibirDados.append("\n E corretor " + corretor.getNome());
         exibirDados.append("\n Atualmente está locado para: " + moradores.size() + " morador(es)");
         exibirDados.append("\n São eles: " + moradores);
 
