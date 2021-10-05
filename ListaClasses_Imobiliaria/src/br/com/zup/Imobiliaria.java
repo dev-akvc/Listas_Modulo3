@@ -3,14 +3,14 @@ package br.com.zup;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Catalogo {
+public class Imobiliaria {
     private List<Imovel> listaImoveis = new ArrayList<>();
 
     //    Métodos construtores
-    public Catalogo() {
+    public Imobiliaria() {
     }
 
-    public Catalogo(List<Imovel> listaImoveis) {
+    public Imobiliaria(List<Imovel> listaImoveis) {
         this.listaImoveis = listaImoveis;
     }
 
