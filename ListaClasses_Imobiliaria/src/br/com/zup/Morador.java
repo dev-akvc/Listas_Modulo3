@@ -15,4 +15,14 @@ public class Morador extends Pessoa{
         super(nome, cpf);
         this.ocupacao = ocupacao;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder exibirDados = new StringBuilder();
+
+        exibirDados.append("\n Inquilino: " + getNome());
+        exibirDados.append("\n CPF " + getCpf());
+
+        return exibirDados.toString();
+    }
 }

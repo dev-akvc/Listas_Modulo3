@@ -6,6 +6,9 @@ import java.util.Scanner;
 
 public class Sistema {
     static Imobiliaria imobiliaria = new Imobiliaria();
+    static List<Imobiliaria> listaImobiliaria = new ArrayList<>();
+    static List<Morador> listaMoradores = new ArrayList<>();
+    Imovel novoImovel = new Imovel();
 
 
     //    Método para automatizar entrada de dados (instancia o Scanner)
@@ -28,6 +31,19 @@ public class Sistema {
         return morador;
     }
 
+    public static List<Morador> cadastrarListaMoradores(){
+        boolean novosMoradores = true;
+        while (novosMoradores){
+            novosMoradores = false;
+            listaMoradores.add(cadastrarMoradores());
+            int repetirCadastroMorador = capturarDados("=== Cadastrar novo morador? ===\n 1- Sim \n 2- Não ").nextInt();
+            if (repetirCadastroMorador ==1){
+                novosMoradores = true;
+            }
+        }
+        return listaMoradores;
+    }
+
     public static Corretor cadastrarCorretor() {
         String nomeCorretor = capturarDados("Quem é o corretor?").nextLine();
         Corretor novoCorretor = new Corretor(nomeCorretor);
@@ -35,22 +51,23 @@ public class Sistema {
     }
 
     public static double aluguel() {
-        double leitorAluguel = capturarDados("Informe o valor do aluguel: ").nextDouble();
-        return leitorAluguel;
+        double valorAluguel = capturarDados("Informe o valor do aluguel: ").nextDouble();
+        return valorAluguel;
     }
 
     public static String endereco() {
-        String leitorEndereco = capturarDados("Informe o endereço: ").nextLine();
-        return leitorEndereco;
+        String novoEndereco = capturarDados("Informe o endereço: ").nextLine();
+        return novoEndereco;
     }
 
     public static Imovel cadastrarImovel() {
         Imovel novoImovel = new Imovel();
-        List<Morador> listaMoradores = new ArrayList<>();
-        novoImovel.escolherEndereco(endereco());
+        List<Morador> novosMoradores = new ArrayList<>();
+        listaMoradores = novosMoradores;
         novoImovel.adicionarCorretor(cadastrarCorretor());
-        novoImovel.adicionarMorador(cadastrarMoradores());
+        novoImovel.escolherEndereco(endereco());
         novoImovel.valorDoAluguel(aluguel());
+        novoImovel.setMoradores(cadastrarListaMoradores());
         return novoImovel;
     }
 
@@ -81,10 +98,6 @@ public class Sistema {
                     System.out.println("Opção inválida");
                     break;
             }
-
         }
-
     }
-
-
 }

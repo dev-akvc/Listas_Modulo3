@@ -40,6 +40,21 @@ public class Imovel {
         this.valorAluguel = valorAluguel;
     }
 
+    public List<Morador> getMoradores() {
+        return moradores;
+    }
+
+    public void setMoradores(List<Morador> moradores) {
+        this.moradores = moradores;
+    }
+
+    public Corretor getCorretor() {
+        return corretor;
+    }
+
+    public void setCorretor(Corretor corretor) {
+        this.corretor = corretor;
+    }
 
     public void escolherEndereco (String novoEndereco){
         endereco = novoEndereco;
@@ -66,11 +81,12 @@ public class Imovel {
     public String toString() {
         StringBuilder exibirDados = new StringBuilder();
 
-        exibirDados.append(" O imóvel do endereço: " + endereco);
+        exibirDados.append("\n O imóvel do endereço: " + endereco);
         exibirDados.append("\n Tem o aluguel de R$ " + valorAluguel);
         exibirDados.append("\n E corretor " + corretor.getNome());
-        exibirDados.append("\n Atualmente está locado para: " + moradores.size() + " morador(es)");
-        exibirDados.append("\n São eles: " + moradores);
+        exibirDados.append("\n Atualmente está locado para " + moradores.size() + " morador(es)");
+        exibirDados.append("\n São eles: " + getMoradores().toString());
+        exibirDados.append("\n");
 
         return exibirDados.toString();
     }
