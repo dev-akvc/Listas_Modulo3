@@ -23,10 +23,20 @@ public class Imobiliaria {
         this.listaImoveis = listaImoveis;
     }
 
+    //    Adicionar e exibir imóveis
+    public void adicionarImovel (Imovel novoImovel){
+        listaImoveis.add(novoImovel);
+    }
+    public void exibirImoveis(){
+        for (Imovel referencia : listaImoveis){
+            System.out.println(referencia.toString());
+        }
+    }
+
     @Override
     public String toString() {
         StringBuilder exibirCatalogo = new StringBuilder();
-        exibirCatalogo.append(this.listaImoveis);
+        exibirCatalogo.append("\n--- Catálogo de imóveis ---\n" +listaImoveis.toString());
         return exibirCatalogo.toString();
     }
 
