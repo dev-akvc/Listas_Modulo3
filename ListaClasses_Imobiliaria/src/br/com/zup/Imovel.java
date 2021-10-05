@@ -10,7 +10,12 @@ public class Imovel {
     private Corretor corretor;
 
     //    Métodos construtores
+
+
     public Imovel() {
+    }
+
+    public Imovel(String endereco, double valorAluguel, List<Morador> listaMoradores, Corretor corretor) {
     }
 
     public Imovel(String endereco, double valorAluguel) {

@@ -7,6 +7,10 @@ public abstract class Pessoa {
     public Pessoa() {
     }
 
+    public Pessoa(String nome) {
+        this.nome = nome;
+    }
+
     public Pessoa(String nome, String cpf) {
         this.nome = nome;
         this.cpf = cpf;
