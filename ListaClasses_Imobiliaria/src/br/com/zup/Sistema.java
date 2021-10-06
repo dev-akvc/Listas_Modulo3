@@ -2,16 +2,9 @@ package br.com.zup;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Sistema {
-    static Imobiliaria imobiliaria = new Imobiliaria();
-    static List<Imobiliaria> listaImobiliaria = new ArrayList<>();
-    static List<Imovel> listaImoveis = new ArrayList<>();
-    static Imovel novoImovel = new Imovel();
-    static List<Morador> listaMoradores = new ArrayList<>();
-
 
     //    Método para automatizar entrada de dados (instancia o Scanner)
     private static Scanner capturarDados(String mensagem) {
@@ -26,10 +19,11 @@ public class Sistema {
 
     public static boolean validarCpf(Imobiliaria imobiliaria, Morador morador) {
         //Percorrer lista de imóveis
+        String cpf = morador.getCpf();
         for (Imovel imovelReferencia : imobiliaria.getListaImoveis()) {
             //Percorrer todas as listas de moradores
             for (Morador moradorReferencia : imovelReferencia.getMoradores()) {
-                if (moradorReferencia.getCpf().equals(morador.getCpf())) {
+                if (moradorReferencia.getCpf().equals(cpf)) {
                     return true;
                 }
             }
@@ -48,21 +42,23 @@ public class Sistema {
 
     public static void cadastrarListaMoradores(Imobiliaria imobiliaria, Imovel imovel) {
 
-        boolean novosMoradores = true;
+        boolean novoMorador = true;
+        while (novoMorador) {
 
-        while (novosMoradores) {
+            int cadastrarNovoMorador = capturarDados("=== Cadastrar novo morador? ===\n 1- Sim \n 2- Não ").nextInt();
+            if (cadastrarNovoMorador == 1) {
+                Morador morador = receberDadosMoradores();
+                boolean cpfExistente = validarCpf(imobiliaria, morador);
 
-            Morador morador = receberDadosMoradores();
-            boolean cpfExistente = validarCpf(imobiliaria, morador);
+                if (cpfExistente) {
+                    System.out.println(" * CPF já registrado no sistema * ");
 
-            if (cpfExistente) {
-                System.out.println(" * CPF já registrado no sistema * ");
-            } else {
-                imovel.adicionarMorador(morador);
-                int cadastrarNovoMorador = capturarDados("=== Cadastrar novo morador? ===\n 1- Sim \n 2- Não ").nextInt();
-                if (cadastrarNovoMorador == 1) {
-                    novosMoradores = true;
+                } else {
+                    imovel.adicionarMorador(morador);
                 }
+            }
+            if (cadastrarNovoMorador == 2) {
+                novoMorador = false;
             }
         }
     }
@@ -73,29 +69,17 @@ public class Sistema {
         return novoCorretor;
     }
 
-    public static double aluguel() {
-        double valorAluguel = capturarDados("Informe o valor do aluguel: ").nextDouble();
-        return valorAluguel;
-    }
-
-    public static String endereco() {
-        String novoEndereco = capturarDados("Informe o endereço: ").nextLine();
-        return novoEndereco;
-    }
-
     public static Imovel cadastrarImovel() {
-        Imovel novoImovel = new Imovel();
-        List<Morador> novosMoradores = new ArrayList<>();
-        listaMoradores = novosMoradores;
-        novoImovel.adicionarCorretor(cadastrarCorretor());
-        novoImovel.escolherEndereco(endereco());
-        novoImovel.valorDoAluguel(aluguel());
-        novoImovel.setMoradores(cadastrarListaMoradores());
-        return novoImovel;
+        String novoEndereco = capturarDados("Informe o endereço: ").nextLine();
+        double valorAluguel = capturarDados("Informe o valor do aluguel: ").nextDouble();
+        Imovel imovel = new Imovel(novoEndereco, valorAluguel);
+
+        return imovel;
     }
 
     public static void run() {
         boolean executar = true;
+        Imobiliaria imobiliaria = new Imobiliaria();
 
         while (executar) {
 
@@ -109,7 +93,12 @@ public class Sistema {
                     break;
 
                 case 2:
-                    imobiliaria.adicionarImovel(cadastrarImovel());
+                    Imovel imovel = cadastrarImovel();
+                    imobiliaria.adicionarImovel(imovel);
+                    Corretor corretor = cadastrarCorretor();
+                    imovel.setCorretor(corretor);
+                    cadastrarListaMoradores(imobiliaria, imovel);
+
                     break;
 
                 case 3:
