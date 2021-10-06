@@ -2,13 +2,15 @@ package br.com.zup;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Sistema {
     static Imobiliaria imobiliaria = new Imobiliaria();
     static List<Imobiliaria> listaImobiliaria = new ArrayList<>();
+    static List<Imovel> listaImoveis = new ArrayList<>();
+    static Imovel novoImovel = new Imovel();
     static List<Morador> listaMoradores = new ArrayList<>();
-    Imovel novoImovel = new Imovel();
 
 
     //    Método para automatizar entrada de dados (instancia o Scanner)
@@ -22,37 +24,47 @@ public class Sistema {
         System.out.println("=== Menu ===\n 1- Exibir imóveis \n 2- Cadastrar imóveis \n 3- Sair do menu\n");
     }
 
-    public static Morador cadastrarMoradores() {
+    public static boolean validarCpf(Imobiliaria imobiliaria, Morador morador) {
+        //Percorrer lista de imóveis
+        for (Imovel imovelReferencia : imobiliaria.getListaImoveis()) {
+            //Percorrer todas as listas de moradores
+            for (Morador moradorReferencia : imovelReferencia.getMoradores()) {
+                if (moradorReferencia.getCpf().equals(morador.getCpf())) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static Morador receberDadosMoradores() {
         String nome = capturarDados("Informe o nome do morador: ").nextLine();
         String cpf = capturarDados("Informe o CPF: ").nextLine();
         String ocupacao = capturarDados("Informe a ocupação: ").nextLine();
         Morador morador = new Morador(nome, cpf, ocupacao);
 
-        boolean cpfDiferente = true;
-        for (Morador referencia : listaMoradores) {
-            if (cpf.equals(referencia.getCpf())) {
-                System.out.println(" * Não é possível cadastrar moradores com o mesmo CPF * ");
-                cpfDiferente = false;
-            }
-            if (cpfDiferente) {
-                morador.setNome(nome);
-                morador.setCpf(cpf);
-            }
-        }
         return morador;
     }
 
-    public static List<Morador> cadastrarListaMoradores() {
+    public static void cadastrarListaMoradores(Imobiliaria imobiliaria, Imovel imovel) {
+
         boolean novosMoradores = true;
+
         while (novosMoradores) {
-            novosMoradores = false;
-            listaMoradores.add(cadastrarMoradores());
-            int repetirCadastroMorador = capturarDados("=== Cadastrar novo morador? ===\n 1- Sim \n 2- Não ").nextInt();
-            if (repetirCadastroMorador == 1) {
-                novosMoradores = true;
+
+            Morador morador = receberDadosMoradores();
+            boolean cpfExistente = validarCpf(imobiliaria, morador);
+
+            if (cpfExistente) {
+                System.out.println(" * CPF já registrado no sistema * ");
+            } else {
+                imovel.adicionarMorador(morador);
+                int cadastrarNovoMorador = capturarDados("=== Cadastrar novo morador? ===\n 1- Sim \n 2- Não ").nextInt();
+                if (cadastrarNovoMorador == 1) {
+                    novosMoradores = true;
+                }
             }
         }
-        return listaMoradores;
     }
 
     public static Corretor cadastrarCorretor() {
