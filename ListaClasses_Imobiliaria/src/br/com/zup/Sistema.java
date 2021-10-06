@@ -1,7 +1,5 @@
 package br.com.zup;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Sistema {
@@ -50,8 +48,8 @@ public class Sistema {
     public static Morador receberDadosMoradores() {
         String nome = capturarDados("Informe o nome do morador: ").nextLine();
         String cpf = capturarDados("Informe o CPF: ").nextLine();
-        String ocupacao = capturarDados("Informe a ocupação: ").nextLine();
-        Morador morador = new Morador(nome, cpf, ocupacao);
+        String email = capturarDados("Informe o email: ").nextLine();
+        Morador morador = new Morador(nome, cpf, email);
 
         return morador;
     }
@@ -65,9 +63,14 @@ public class Sistema {
             if (cadastrarNovoMorador == 1) {
                 Morador morador = receberDadosMoradores();
                 boolean cpfExistente = validarCpf(imobiliaria, morador);
+                boolean emailDiferente = validarEmailRepetido(imobiliaria, morador);
+                boolean emailValido = validarEmailComArroba(imobiliaria, morador);
 
                 if (cpfExistente) {
                     System.out.println(" * CPF já registrado no sistema * ");
+                }
+                if (!emailDiferente | !emailValido) {
+                    System.out.println(" * Email inválido * ");
                 } else {
                     imovel.adicionarMorador(morador);
                 }
@@ -91,6 +94,39 @@ public class Sistema {
 
         return imovel;
     }
+
+    public static boolean validarEmailRepetido(Imobiliaria imobiliaria, Morador morador) {
+        //Percorrer lista de imóveis
+        String email = "";
+        for (Imovel imovelReferencia : imobiliaria.getListaImoveis()) {
+            //Percorrer todas as listas de moradores
+            for (Morador moradorReferencia : imovelReferencia.getMoradores()) {
+                if (moradorReferencia.getEmail().equals(email)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean validarEmailComArroba(Imobiliaria imobiliaria, Morador morador) {
+
+        if (validarEmailRepetido(imobiliaria, morador)) {
+
+//            String email = "";
+            for (Imovel imovelReferencia : imobiliaria.getListaImoveis()) {
+                //Percorrer todas as listas de moradores
+                for (Morador moradorReferencia : imovelReferencia.getMoradores()) {
+                    if (moradorReferencia.getEmail().contains("@")) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+
+    }
+
 
     public static void run() {
         boolean executar = true;
