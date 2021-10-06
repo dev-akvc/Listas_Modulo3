@@ -14,7 +14,7 @@ public class Sistema {
 
     public static void menuInicial() {
         System.out.println("=== Bem vindo(a) ao cadastro de imóveis === \n");
-        System.out.println("=== Menu ===\n 1- Exibir imóveis \n 2- Cadastrar imóveis \n 3- Sair do menu\n");
+        System.out.println("=== Menu ===\n 1- Exibir imóveis \n 2- Cadastrar imóveis \n 3- Excluir morador \n 4- Sair do menu\n");
     }
 
     public static boolean validarCpf(Imobiliaria imobiliaria, Morador morador) {
@@ -29,6 +29,22 @@ public class Sistema {
             }
         }
         return false;
+    }
+
+    public static String excluirMoradorPorCpf(Imobiliaria imobiliaria) {
+
+        String cpf = capturarDados("Digite o CPF do morador a ser removido: ").nextLine();
+
+        for (Imovel percorrerImoveis : imobiliaria.getListaImoveis()) {
+            // Percorrer todas as listas dos moradores
+            for (Morador percorrerMoradores : percorrerImoveis.getMoradores()) {
+                if (percorrerMoradores.getCpf().equals(cpf)) {
+                    percorrerImoveis.getMoradores().remove(percorrerMoradores);
+                    return " * Morador removido * ";
+                }
+            }
+        }
+        return " * Morador não localizado *";
     }
 
     public static Morador receberDadosMoradores() {
@@ -52,7 +68,6 @@ public class Sistema {
 
                 if (cpfExistente) {
                     System.out.println(" * CPF já registrado no sistema * ");
-
                 } else {
                     imovel.adicionarMorador(morador);
                 }
@@ -102,6 +117,11 @@ public class Sistema {
                     break;
 
                 case 3:
+                    String statusDeRemocao = excluirMoradorPorCpf(imobiliaria);
+                    System.out.println(statusDeRemocao);
+                    break;
+
+                case 4:
                     System.out.println(" * Bye *");
                     executar = false;
                     break;
