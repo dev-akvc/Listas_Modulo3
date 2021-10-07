@@ -18,4 +18,13 @@ public class ServicoConsumidor {
         }
     }
 
+    public static Consumidor pesquisarConsumidorPorEmail (String email) throws Exception{
+        for (Consumidor pesquisarConsumidor: consumidores) {
+            if(pesquisarConsumidor.getEmail().equals(email)){
+                return pesquisarConsumidor;
+            }
+        }
+        throw new Exception("* Consumidor não cadastrado *");
+    }
+
 }

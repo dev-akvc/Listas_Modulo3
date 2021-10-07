@@ -20,6 +20,12 @@ public class Sistema {
         return ServicoConsumidor.cadastrarConsumidor(nome, email);
     }
 
+    public static Fatura cadastrarFatura() throws Exception{
+        String email = leitorDados("Qual email do consumidor?").nextLine();
+        double valorFatura = leitorDados("Informe valor da fatura: ").nextDouble();
+        String dataDeVencimento = leitorDados("Informe a data de vecimento: ").nextLine();
 
+        return ServicoFatura.cadastrarFatura(email, valorFatura, dataDeVencimento);
+    }
 
 }
