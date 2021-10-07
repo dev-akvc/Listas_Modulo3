@@ -3,7 +3,10 @@ package br.com.zup;
 public class Main {
 
     public static void main(String[] args) {
-        Sistema.cadastrarConsumidor();
-        ServicoConsumidor.exibirConsumidores();
+        try {
+            Sistema.cadastrarConsumidor();
+        }catch (Exception erro){
+            System.out.println(erro.getMessage());
+        }
     }
 }

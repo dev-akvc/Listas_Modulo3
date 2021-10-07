@@ -14,7 +14,7 @@ public class Sistema {
         System.out.println("\nDigite: \n 1- Cadastrar consumidor \n 2- Cadastrar fatura \n 3- Sair ");
     }
 
-    public static Consumidor cadastrarConsumidor(){
+    public static Consumidor cadastrarConsumidor() throws Exception{
         String nome = leitorDados("Qual nome do consumidor? ").nextLine();
         String email = leitorDados("Qual email?").nextLine();
         return ServicoConsumidor.cadastrarConsumidor(nome, email);

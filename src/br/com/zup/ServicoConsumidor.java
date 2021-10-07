@@ -6,7 +6,14 @@ import java.util.List;
 public class ServicoConsumidor {
     private static List<Consumidor> consumidores = new ArrayList<>();
 
-    public static Consumidor cadastrarConsumidor(String nome, String email){
+    public static void validarEmail(String email) throws Exception{
+        if(!email.contains("@")){
+            throw new Exception("* Email inválido *");
+        }
+    }
+
+    public static Consumidor cadastrarConsumidor(String nome, String email) throws Exception{
+        validarEmail(email);
         Consumidor consumidor = new Consumidor(nome, email);
         consumidores.add(consumidor);
         return consumidor;
@@ -26,5 +33,4 @@ public class ServicoConsumidor {
         }
         throw new Exception("* Consumidor não cadastrado *");
     }
-
 }
