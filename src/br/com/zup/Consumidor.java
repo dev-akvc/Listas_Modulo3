@@ -31,8 +31,8 @@ public class Consumidor {
     @Override
     public String toString(){
         StringBuilder dadosConsumidor = new StringBuilder();
-        dadosConsumidor.append("Nome do cliente: " +nome);
-        dadosConsumidor.append("Email: " +email);
+        dadosConsumidor.append("\nNome do cliente: " +nome);
+        dadosConsumidor.append("\nEmail: " +email);
         return dadosConsumidor.toString();
     }
 }
