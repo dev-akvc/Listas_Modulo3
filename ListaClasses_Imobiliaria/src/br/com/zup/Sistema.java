@@ -63,13 +63,13 @@ public class Sistema {
             if (cadastrarNovoMorador == 1) {
                 Morador morador = receberDadosMoradores();
                 boolean cpfExistente = validarCpf(imobiliaria, morador);
-                boolean emailDiferente = validarEmailRepetido(imobiliaria, morador);
-                boolean emailValido = validarEmailComArroba(imobiliaria, morador);
+                boolean emailRepetido = validarEmailRepetido(imobiliaria, morador);
+                boolean emailValido = validarEmailComArroba(morador);
 
                 if (cpfExistente) {
                     System.out.println(" * CPF já registrado no sistema * ");
                 }
-                if (!emailDiferente | !emailValido) {
+                else if (emailRepetido | !emailValido) {
                     System.out.println(" * Email inválido * ");
                 } else {
                     imovel.adicionarMorador(morador);
@@ -97,7 +97,7 @@ public class Sistema {
 
     public static boolean validarEmailRepetido(Imobiliaria imobiliaria, Morador morador) {
         //Percorrer lista de imóveis
-        String email = "";
+        String email = morador.getEmail();
         for (Imovel imovelReferencia : imobiliaria.getListaImoveis()) {
             //Percorrer todas as listas de moradores
             for (Morador moradorReferencia : imovelReferencia.getMoradores()) {
@@ -109,22 +109,13 @@ public class Sistema {
         return false;
     }
 
-    public static boolean validarEmailComArroba(Imobiliaria imobiliaria, Morador morador) {
+    public static boolean validarEmailComArroba(Morador morador) {
 
-        if (validarEmailRepetido(imobiliaria, morador)) {
-
-//            String email = "";
-            for (Imovel imovelReferencia : imobiliaria.getListaImoveis()) {
-                //Percorrer todas as listas de moradores
-                for (Morador moradorReferencia : imovelReferencia.getMoradores()) {
-                    if (moradorReferencia.getEmail().contains("@")) {
-                        return true;
-                    }
-                }
-            }
+        String email = morador.getEmail();
+        if (email.contains("@")) {
+            return true;
         }
         return false;
-
     }
 
 
