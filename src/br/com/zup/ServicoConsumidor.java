@@ -12,4 +12,10 @@ public class ServicoConsumidor {
         return consumidor;
     }
 
+    public static void exibirConsumidores(){
+        for (Consumidor buscarConsumidor: consumidores) {
+            System.out.println(buscarConsumidor);
+        }
+    }
+
 }
